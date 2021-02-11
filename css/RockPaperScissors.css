@@ -1,0 +1,60 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color:#272A45
+}
+
+section{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:400px;
+    margin:180px auto;
+    
+}
+
+.players{
+    display:flex;
+    justify-content: space-between;
+}
+
+
+.player1, .player2{
+ display:flex;
+ flex-direction: column;
+ color:white;
+ font-family:Caveat;
+ font-size:25px;
+}
+.fwon,.swon{
+    font-size:50px;
+    color:#FFc95C;
+    margin-left:30px;
+    display: none;
+}
+.draw{
+    font-size: 30px;
+    color:#FFc95C;
+    font-family: cursive;
+    margin-top:200px;
+    display: none;
+}
+h2{
+    margin-bottom:25px;
+}
+
+.start{
+    color:white;
+    font-size: 45px;
+    margin-left:170px;
+    background-color:#FFc95C;
+    width:50px;
+    font-family: Caveat;
+    cursor: pointer;
+    border-radius: 5px;
+}
+

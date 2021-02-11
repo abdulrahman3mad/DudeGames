@@ -1,0 +1,173 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0
+}
+
+body{
+    overflow: hidden;
+    background-color:#272A45
+}
+
+
+$mainColor:white;
+$mainColor2:#FFc95C;
+$mainFont:Caveat;
+$mainSize:50px;
+
+//functions
+@mixin fonts($color,$size,$family) {
+    font-size:$size;
+    color:$color;
+    font-family: $family;
+}
+//-----
+
+
+//heaer----
+
+//--------
+
+//upperbar--------
+.upperbar{
+    margin:0 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .score,.countdown{
+        display: none;
+        @include fonts($mainColor,$mainSize,$mainFont);  
+    }
+    .name{
+        @include fonts(white,$mainSize,$mainFont);          
+    }
+
+    
+     span{
+        float:right;
+        position: absolute;
+        top:30px;
+        right:10px;
+        display:none;
+        @include fonts(green,35px,$mainFont);
+    }
+}
+
+
+//------------
+
+//beforeAndAfterGame------
+
+    .calctype{
+        
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .calctype .icons{
+        @extend %flexdisplay;
+    }
+    .calctype h2{
+        margin-top:100px;
+        color:$mainColor2;
+        font-family: $mainFont;
+        font-size:$mainSize;
+    }
+    .calctype .icons div{
+        
+        margin:10px;
+        text-align:center;
+        border-radius: 108px 80px 138px 138px;
+        width:100px;
+        height:100px;
+        background-color:$mainColor2;
+        color:white;
+        font-size:80px;
+        font-family: $mainFont;
+        cursor: pointer;
+        transition:all 0.5s ease-in-out;
+                
+            &:hover{
+                transform: scale(1.2,1.2);
+            }
+
+            &:nth-child(2){
+                border-radius: 10px 18px 168px 168px;
+            }
+            &:nth-child(3){
+                border-radius: 80px 0 98px 78px;
+            }
+            &:nth-child(4){
+                border-radius: 150px 20px 100px 158px;
+            }
+            
+            
+    }
+   
+    .nameinput{
+        margin-top:10px;
+        background-color:$mainColor;
+        width:100px;
+        border-radius: 10px;
+        border:none;
+        height:30px;
+        text-align: center;
+        @include fonts(black,$mainSize - 30 ,$mainFont);
+        
+        &:focus{outline:none}
+    }
+
+    .highscore{
+        color:$mainColor;
+        font-size:40px;
+        font-family: $mainFont;
+    }
+
+
+//------------
+
+//duringGame-----
+.gameplay {
+    display: flex;
+    flex-direction: column;
+    margin:100px auto;
+    @extend %flexdisplay;
+
+    .numbers {
+        margin-right:25px;
+        display:none;
+        @include fonts($mainColor,150px,$mainFont)
+    }
+    
+    .numbersinput {
+        margin-top:10px;
+        background-color:$mainColor;
+        width:100px;
+        border-radius: 10px;
+        border:none;
+        height:50px;
+        text-align: center;
+        @include fonts(black,$mainSize - 10 ,$mainFont);
+        
+        &:focus{outline:none}
+    }
+
+    i {font-size:$mainSize;margin-top:20px}
+
+    .numbersinput, .correct, .wrong {display:none}
+
+    .fa-check{color:green}
+    .fa-times{color:red}
+    
+}
+//-----------
+
+//extend classes
+
+ %flexdisplay{
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    flex-wrap: wrap;
+ }
+

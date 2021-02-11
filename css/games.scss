@@ -1,0 +1,120 @@
+
+$mainColor:#FFC95C;
+$mainColor2:white;
+$mainfont:Caveat;
+
+
+//functions----
+@mixin fonts($color,$size,$family) {
+        color:$color;
+        font-size: $size;
+        font-family: $family;
+}
+
+
+//--------
+
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    overflow: hidden;
+    background:$mainColor;
+}
+
+header{
+    font-family:$mainfont;
+    color:$mainColor;
+    text-align: center;
+    font-size:70px; 
+    background-color:white;
+    box-shadow: 2px 2px 5px grey;
+    
+}
+
+.cloud1,.cloud2{
+    position:absolute;
+    top:0;
+    left:-255px;
+    animation:cloudmove 8s infinite;
+}
+
+.cloud2{
+    top:50px;
+    animation-duration: 10s;
+}
+
+@keyframes cloudmove{
+    from{
+        transform:translateX(-250px)
+    }
+    to{
+        transform:translateX(1700px);
+    }
+}
+
+
+.gamePlay{
+    border-radius:150px 0 0 0;
+    flex-direction: row;
+    margin:80px;
+
+ 
+    @extend %flexDisplay;
+
+    .RockPaperScissors,.Summation{
+        background-color:#3b4068;
+        @include fonts($mainColor2,50px,$mainfont);
+        text-align: center;
+        cursor: pointer;
+        border-radius: 70px 90px 200px 150px;
+        box-shadow:2px 2px 4px rgb(143, 138, 138);
+        padding:20px;
+        margin:5px;
+    }  
+}
+
+.Summation i{
+    color:$mainColor;
+    font-size:100px;
+}
+
+.RockPaperScissors:hover,.Summation:hover{
+    background:#3187b9;
+}
+
+
+a{
+    color:white;    
+    text-decoration:none;
+}
+
+
+.info{
+    @extend %flexDisplay;
+    margin-top:170px;
+    flex-direction: column;
+
+    .developer,.gmail{@extend %info;}
+
+}
+
+
+
+%flexDisplay{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+}
+
+
+%info{
+    @include fonts(white,25px,$mainfont);
+    opacity: 0.7;
+    
+}
